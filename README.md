@@ -59,7 +59,7 @@ After finishing - please push your code in your github/bitbucket account, and se
 ###Requirements
 
 * After refactoring code shoud work
-* Code should work on PHP7.2+
+* Code should work on PHP7.4+
 * As file source example please use test.csv
 
 ###Result
