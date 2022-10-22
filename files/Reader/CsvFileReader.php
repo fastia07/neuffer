@@ -14,10 +14,9 @@ class CsvFileReader implements FileReaderInterface
 
     /**
      * This function will do the basic level of validation of file.
-     * @return bool
      * @throws Exception
      */
-    public function validate(): bool
+    public function validate()
     {
         if ($this->filePath === null) {
             throw new \Exception("Please define file with data");
@@ -34,10 +33,12 @@ class CsvFileReader implements FileReaderInterface
         if (pathinfo($this->filePath, PATHINFO_EXTENSION) != 'csv') {
             throw new \Exception("Not a csv file");
         }
-
-        return true;
     }
 
+    /**
+     * Read the file and return the resource.
+     * @return false|resource
+     */
     public function read()
     {
         $this->fp = fopen($this->filePath, "r");
@@ -45,6 +46,9 @@ class CsvFileReader implements FileReaderInterface
         return $this->fp;
     }
 
+    /**
+     * Close the file.
+     */
     public function close()
     {
         fclose($this->fp);
